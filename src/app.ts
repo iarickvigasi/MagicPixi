@@ -1,9 +1,8 @@
 import * as PIXI from 'pixi.js';
-import { gsap } from "gsap";
-import { PixiPlugin } from "gsap/PixiPlugin";
+import { gsap } from 'gsap';
+import { PixiPlugin } from 'gsap/PixiPlugin';
 import Game from './game';
 import SceneManager from './scenes/SceneManager';
-import Resizer from './utils/Resizer';
 
 const CONFIG = {
   resolution: devicePixelRatio,
@@ -11,15 +10,12 @@ const CONFIG = {
   resizeTo: window,
 };
 
-
 class App extends PIXI.Application {
   public sceneManager: SceneManager | undefined;
 
-  public tarotSprites: PIXI.Sprite[];
+  public tarotSprites!: PIXI.Sprite[];
 
-  private game: Game | undefined;
-
-  public tweenManager: tween.TweenManager;
+  private game!: Game;
 
   constructor() {
     super(CONFIG);
@@ -45,30 +41,29 @@ class App extends PIXI.Application {
     this.loader.add('close_idle', 'assets/img/close_idle.png')
       .add('assets/img/tarot_spritesheet.json');
     this.loader.load((_, resources) => {
-      this.createTarotSprites(resources["assets/img/tarot_spritesheet.json"].spritesheet);
+      this.createTarotSprites(resources['assets/img/tarot_spritesheet.json'].spritesheet);
     });
   }
 
   private runGame() {
-    console.log('Run Game')
     this.stage.addChild(this.game);
     this.sceneManager?.loadMenu();
   }
 
   private setupResize() {
-    window.addEventListener('resize', () => this.onResize());
-    this.onResize();
+    // window.addEventListener('resize', () => this.onResize());
+    // this.onResize();
   }
 
-  onResize() {
-    // const scale = Resizer.getScale();
-    // this.renderer.resize(
-    //   Math.ceil(window.innerWidth * scale),
-    //   Math.ceil(window.innerHeight * scale)
-    // );
-    // this.view.style.width = `${window.innerWidth}px`;
-    // this.view.style.height = `${window.innerHeight}px`;
-  }
+  // onResize() {
+  // const scale = Resizer.getScale();
+  // this.renderer.resize(
+  //   Math.ceil(window.innerWidth * scale),
+  //   Math.ceil(window.innerHeight * scale)
+  // );
+  // this.view.style.width = `${window.innerWidth}px`;
+  // this.view.style.height = `${window.innerHeight}px`;
+  // }
 
   registerPixiInspector = () => {
     // eslint-disable-next-line max-len,no-underscore-dangle,no-unused-expressions
@@ -94,4 +89,5 @@ declare global {
     Application: App;
   }
 }
-const app = new App();
+// eslint-disable-next-line @typescript-eslint/no-unused-vars,no-new
+new App();

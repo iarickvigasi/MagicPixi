@@ -6,7 +6,7 @@ import PixiFps from '../utils/PixiFps';
 import Scene from './Scene';
 
 export default class CardsScene extends Scene {
-  cards: Container[];
+  cards: Container[] = [];
 
   cardsContainer: Container;
 

@@ -1,18 +1,17 @@
 import {
-  Container, Text, TextStyle, Sprite, Texture,
+  Container, Text, TextStyle, Sprite,
 } from 'pixi.js';
 
 export default class Scene extends Container {
-  public headerText: Text;
+  public headerText!: Text;
 
-  public closeButton: Sprite;
+  public closeButton!: Sprite;
 
   constructor() {
     super();
     this.addTitle();
     this.addCloseButton();
     this.onResize();
-    // this.onCloseClick = new Signal();
     window.addEventListener('resize', () => this.onResize());
   }
 
