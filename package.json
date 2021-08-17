@@ -9,11 +9,14 @@
   },
   "main": "./src/app.ts",
   "scripts": {
+    "preserve": "npm run build",
     "npm-reset": "rm -rf node_modules && npm cache verify && npm i",
     "start": "npx webpack serve",
+    "serve": "node ./server.js",
     "build": "npx webpack"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "gsap": "^3.7.1",
     "pixi-tween": "^0.2.0",
     "pixi.js": "6.0.4"
