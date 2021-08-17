@@ -72,6 +72,7 @@ module.exports = {
   },
   devServer: {
     open: true,
+    port: process.env.PORT || 8080,
     disableHostCheck: true,
     headers: {
       'Access-Control-Allow-Origin': '*',

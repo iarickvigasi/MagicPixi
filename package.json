@@ -10,8 +10,8 @@
   "main": "./src/app.ts",
   "scripts": {
     "npm-reset": "rm -rf node_modules && npm cache verify && npm i",
-    "start": "webpack serve",
-    "build": "webpack"
+    "start": "npx webpack serve",
+    "build": "npx webpack"
   },
   "dependencies": {
     "gsap": "^3.7.1",
