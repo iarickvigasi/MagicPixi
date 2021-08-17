@@ -15,17 +15,17 @@ export default class PixiFps extends PIXI.Container {
     super();
 
     const defaultStyle = new PIXI.TextStyle({
-      fontFamily: 'OpenSans',
-      fontSize: 60,
-      fontWeight: 'bold',
+      fontFamily: 'MorrisRomanAlternate-Black',
+      fontSize: '4em',
       fill: '#ffffff',
-      strokeThickness: 7,
+      strokeThickness: 4,
       stroke: '#000000',
     });
 
     this.timeValues = [];
     this.lastTime = new Date().getTime();
     this.fpsTextField = new PIXI.Text('', { ...defaultStyle, ...style } as PIXI.TextStyle);
+    this.fpsTextField.anchor.set(0.5);
 
     this.fpsTicker = new PIXI.Ticker();
     this.fpsTicker.add(() => {
@@ -50,7 +50,7 @@ export default class PixiFps extends PIXI.Container {
         total += this.timeValues[i];
       }
 
-      this.fpsTextField.text = (total / 30).toFixed(2);
+      this.fpsTextField.text = (total / 30).toFixed(0);
 
       this.timeValues.length = 0;
     }

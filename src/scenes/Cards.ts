@@ -64,8 +64,9 @@ export default class CardsScene extends Scene {
 
   private placeFPSCounter() {
     const fpsCounter = new PixiFps();
+    fpsCounter.x = 50;
+    fpsCounter.y = 50;
+
     this.addChild(fpsCounter);
-    fpsCounter.x = 20;
-    fpsCounter.y = 20;
   }
 }

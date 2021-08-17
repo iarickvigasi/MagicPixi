@@ -1,6 +1,7 @@
 import { Container } from 'pixi.js';
 import MenuScene from './Menu';
 import CardsScene from './Cards';
+import MagicTextScene from './MagicText';
 
 export default class SceneManager {
   private mainStage: Container;
@@ -29,5 +30,10 @@ export default class SceneManager {
   public loadCards() {
     const cardsScene = new CardsScene();
     this.loadScene(cardsScene);
+  }
+
+  public loadMagicText() {
+    const magicTextScene = new MagicTextScene();
+    this.loadScene(magicTextScene);
   }
 }

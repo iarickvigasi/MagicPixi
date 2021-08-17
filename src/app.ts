@@ -15,6 +15,8 @@ class App extends PIXI.Application {
 
   public tarotSprites!: PIXI.Sprite[];
 
+  public fantasyIcons!: PIXI.Sprite[];
+
   private game!: Game;
 
   constructor() {
@@ -39,9 +41,12 @@ class App extends PIXI.Application {
 
   private loadAssets() {
     this.loader.add('close_idle', 'assets/img/close_idle.png')
-      .add('assets/img/tarot_spritesheet.json');
+      .add('assets/img/tarot_spritesheet.json')
+      .add('assets/img/fantasy_icons.json');
+
     this.loader.load((_, resources) => {
       this.createTarotSprites(resources['assets/img/tarot_spritesheet.json'].spritesheet);
+      this.createIconSprites(resources['assets/img/fantasy_icons.json'].spritesheet);
     });
   }
 
@@ -70,12 +75,20 @@ class App extends PIXI.Application {
     (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__ && (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI });
   };
 
-  private createTarotSprites(spritesheet: PIXI.Spritesheet) {
+  private createSprites(spritesheet: PIXI.Spritesheet) {
     const keys = Object.keys(spritesheet.textures);
-    this.tarotSprites = keys.map((key) => {
+    return keys.map((key) => {
       const sprite = new PIXI.Sprite(spritesheet.textures[key]);
       return sprite;
     });
+  }
+
+  private createTarotSprites(spritesheet: PIXI.Spritesheet) {
+    this.tarotSprites = this.createSprites(spritesheet);
+  }
+
+  private createIconSprites(spritesheet: any) {
+    this.fantasyIcons = this.createSprites(spritesheet);
   }
 
   private configureTween() {

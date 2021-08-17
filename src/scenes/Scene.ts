@@ -17,11 +17,10 @@ export default class Scene extends Container {
 
   private addTitle() {
     const headerText = new Text('', new TextStyle({
-      fontFamily: 'OpenSans',
-      fontSize: 60,
-      fontWeight: 'bold',
+      fontFamily: 'MorrisRomanAlternate-Black',
+      fontSize: '4em',
       fill: '#ffffff',
-      strokeThickness: 7,
+      strokeThickness: 4,
       stroke: '#000000',
     }));
     headerText.anchor.set(0.5);
@@ -32,6 +31,7 @@ export default class Scene extends Container {
   private addCloseButton() {
     const closeButton = Sprite.from('assets/img/close_idle.png');
     closeButton.anchor.set(0.5);
+    closeButton.scale.set(0.5);
     closeButton.interactive = true;
     closeButton.buttonMode = true;
     closeButton.on('pointerdown', () => this.handleCloseClick());

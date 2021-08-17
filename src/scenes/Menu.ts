@@ -1,4 +1,4 @@
-import { Container, Text, TextStyle } from 'pixi.js';
+import { Container, TextStyle, Text } from 'pixi.js';
 
 export default class MenuScene extends Container {
   private buttons: Container[] = [];
@@ -12,7 +12,7 @@ export default class MenuScene extends Container {
   private generateButtons() {
     this.buttons = [
       { label: '144 Moving Cards', onClick: () => global.window.Application.sceneManager?.loadCards() },
-      { label: 'Fantasy Image Text', onClick: () => global.window.Application.sceneManager?.loadCards() },
+      { label: 'Fantasy Image Text', onClick: () => global.window.Application.sceneManager?.loadMagicText() },
       { label: 'Fireballs!', onClick: () => global.window.Application.sceneManager?.loadCards() },
     ].map(({ label, onClick }) => {
       const button = new Container();
@@ -22,11 +22,11 @@ export default class MenuScene extends Container {
       this.addChild(button);
 
       const title = new Text(label, new TextStyle({
-        fontFamily: 'OpenSans',
-        fontSize: 48,
+        fontFamily: 'MorrisRomanAlternate-Black',
+        fontSize: '40px',
         fontWeight: 'bold',
         fill: '#ffffff',
-        strokeThickness: 5,
+        strokeThickness: 4,
         stroke: '#000000',
       }));
       title.anchor.set(0.5);
@@ -43,7 +43,7 @@ export default class MenuScene extends Container {
     for (let i = 0, l = buttons.length; i < l; i += 1) {
       const button = buttons[i];
       button.x = global.window.Application.screen.width * 0.5;
-      button.y = global.window.Application.screen.height * 0.5 + 50 + (i - l * 0.5 + 0.5) * 160;
+      button.y = global.window.Application.screen.height * 0.5 + 50 + (i - l * 0.5 + 0.5) * 100;
     }
   }
 
