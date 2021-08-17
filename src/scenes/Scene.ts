@@ -1,6 +1,8 @@
 import {
   Container, Text, TextStyle, Sprite,
 } from 'pixi.js';
+import decorate from '../utils/Decorate';
+import PixiFps from '../utils/PixiFps';
 
 export default class Scene extends Container {
   public headerText!: Text;
@@ -11,8 +13,9 @@ export default class Scene extends Container {
     super();
     this.addTitle();
     this.addCloseButton();
-    this.onResize();
-    window.addEventListener('resize', () => this.onResize());
+    this.placeFPSCounter();
+    this.positionElements();
+    decorate(this);
   }
 
   private addTitle() {
@@ -39,17 +42,25 @@ export default class Scene extends Container {
     this.closeButton = closeButton;
   }
 
-  onResize() {
+  positionElements() {
     const { headerText, closeButton } = this;
 
     headerText.x = window.Application.screen.width * 0.5;
-    headerText.y = 50;
+    headerText.y = 70;
 
-    closeButton.x = window.Application.screen.width - 50;
-    closeButton.y = 50;
+    closeButton.x = window.Application.screen.width - 70;
+    closeButton.y = 70;
   }
 
   handleCloseClick = () => {
     window.Application.sceneManager?.loadMenu();
+  }
+
+  private placeFPSCounter() {
+    const fpsCounter = new PixiFps();
+    fpsCounter.x = 70;
+    fpsCounter.y = 70;
+
+    this.addChild(fpsCounter);
   }
 }

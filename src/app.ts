@@ -40,7 +40,9 @@ class App extends PIXI.Application {
   }
 
   private loadAssets() {
-    this.loader.add('close_idle', 'assets/img/close_idle.png')
+    this.loader.add('assets/img/close_idle.png')
+      .add('assets/img/bar.png')
+      .add('assets/imb/cube.png')
       .add('assets/img/tarot_spritesheet.json')
       .add('assets/img/fantasy_icons.json');
 

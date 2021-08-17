@@ -1,13 +1,25 @@
-import {TextStyle} from 'pixi.js';
+import gsap from "gsap";
+import { TextStyle } from 'pixi.js';
 import TextIcon from '../utils/TextIcon';
 import Scene from './Scene';
-import PixiFps from '../utils/PixiFps';
+
 
 export default class MagicTextScene extends Scene {
 
   private interval: NodeJS.Timeout | undefined;
 
   private readonly TIME_INTERVAL = 2000;
+
+  private readonly CHARACTERS = [
+    'Gandalf',
+    'Frodo',
+    'Mordor',
+    'Aragorn',
+    'Galadriel',
+    'Legolas',
+    'Tranduil',
+    'Arick'
+  ];
 
   private readonly MAGIC_PHRASES = [
     'Ai!',                              // Hi!
@@ -39,7 +51,6 @@ export default class MagicTextScene extends Scene {
   constructor() {
     super();
     this.headerText.text = 'Magic Texts!';
-    this.placeFPSCounter();
     this.startFantasyMagic();
   }
 
@@ -54,15 +65,20 @@ export default class MagicTextScene extends Scene {
   }
 
   private startFantasyMagic() {
+    this.generateFantasyMagic();
     this.interval = setInterval(this.generateFantasyMagic.bind(this), this.TIME_INTERVAL);
   }
 
   private generateFantasyMagic() {
     if (this.magicText) this.removeChild(this.magicText);
     const combination = [null, null, null].map(this.getRandomItem).join(' ');
-    this.magicText = new TextIcon(combination, this.getMagicTextStyle(), this.MAGIC_ITEMS_MAP);
-    this.magicText.y = window.Application.screen.height / 2;
-    this.magicText.x = 20;
+    const author = this.generateAuthor();
+    this.magicText = new TextIcon(`${author} ${combination}`, this.getMagicTextStyle(), this.MAGIC_ITEMS_MAP);
+    this.magicText.anchor.set(0.5);
+    this.magicText.y = 240;
+    this.magicText.x = window.Application.screen.width / 2;
+    this.magicText.alpha = 0;
+    gsap.to(this.magicText, { pixi: { alpha: 1 }, duration: 0.5 });
     this.addChild(this.magicText);
   }
 
@@ -80,6 +96,11 @@ export default class MagicTextScene extends Scene {
     return this.MAGIC_ITEMS[randomIndex].key;
   }
 
+  private generateAuthor() {
+    const randomIndex = Math.floor(Math.random() * this.CHARACTERS.length);
+    return `${this.CHARACTERS[randomIndex]} says: `;
+  }
+
   private getMagicTextStyle() {
     return new TextStyle({
       fontFamily: 'MorrisRomanAlternate-Black',
@@ -87,6 +108,8 @@ export default class MagicTextScene extends Scene {
       fill: '#ffffff',
       strokeThickness: 2,
       stroke: '#000000',
+      wordWrap: true,
+      wordWrapWidth: 300,
     });
   }
 
@@ -96,13 +119,4 @@ export default class MagicTextScene extends Scene {
     }
     super.destroy();
   }
-
-  private placeFPSCounter() {
-    const fpsCounter = new PixiFps();
-    fpsCounter.x = 50;
-    fpsCounter.y = 50;
-
-    this.addChild(fpsCounter);
-  }
-
 }

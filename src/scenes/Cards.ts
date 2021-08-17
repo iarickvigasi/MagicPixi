@@ -2,7 +2,6 @@ import {
   Container, Sprite
 } from 'pixi.js';
 import gsap from 'gsap';
-import PixiFps from '../utils/PixiFps';
 import Scene from './Scene';
 
 export default class CardsScene extends Scene {
@@ -19,7 +18,6 @@ export default class CardsScene extends Scene {
     this.headerText.text = 'Magic Cards';
     this.cardsContainer = new Container();
     this.generateRandomCards();
-    this.placeFPSCounter();
     this.placeDeck();
     this.moveDeck();
   }
@@ -37,12 +35,14 @@ export default class CardsScene extends Scene {
   }
 
   private placeDeck() {
-    const PADDING = 20;
+    const PADDING = 40;
     this.cards.forEach((card: Container, index: number) => {
-      card.scale.set(1.5, 1.5);
-      const baseX = 0 + PADDING + index;
+      card.scale.set(1.2, 1.2);
+      const baseX = 0 + PADDING + index * 0.2;
       const baseY = card.height * 2 + PADDING;
+      // eslint-disable-next-line no-param-reassign
       card.x = baseX;
+      // eslint-disable-next-line no-param-reassign
       card.y = (index - this.TOTAL_TAROT_CARDS * 0.5 + 0.5) * 2 + baseY;
       this.cardsContainer.addChild(card);
     });
@@ -57,16 +57,8 @@ export default class CardsScene extends Scene {
   private moveDeck() {
     for (let i = 0; i < this.TOTAL_CARDS; i += 1) {
       const card = this.cards[this.TOTAL_CARDS - 1 - i];
-      const toX = window.Application.screen.width - 20 - card.width - i;
+      const toX = window.Application.screen.width - 40 - card.width - i * 0.5;
       gsap.to(card, { pixi: { x: toX }, duration: 2, delay: i });
     }
-  }
-
-  private placeFPSCounter() {
-    const fpsCounter = new PixiFps();
-    fpsCounter.x = 50;
-    fpsCounter.y = 50;
-
-    this.addChild(fpsCounter);
   }
 }
