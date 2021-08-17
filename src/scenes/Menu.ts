@@ -2,8 +2,6 @@ import { Container, TextStyle, Text } from 'pixi.js';
 import decorate from '../utils/Decorate';
 
 export default class MenuScene extends Container {
-  private buttons: Container[] = [];
-
   constructor() {
     super();
     this.generateButtons();
@@ -11,11 +9,11 @@ export default class MenuScene extends Container {
   }
 
   private generateButtons() {
-    this.buttons = [
+    [
       { label: '144 Moving Cards', onClick: () => global.window.Application.sceneManager?.loadCards() },
       { label: 'Fantasy Image Text', onClick: () => global.window.Application.sceneManager?.loadMagicText() },
       { label: 'Fireballs!', onClick: () => global.window.Application.sceneManager?.loadCards() },
-    ].map(({ label, onClick }, i) => {
+    ].map(({ label, onClick}, i) => {
       const button = new Container();
       button.interactive = true;
       button.buttonMode = true;
@@ -38,5 +36,5 @@ export default class MenuScene extends Container {
 
       return button;
     });
-
+  }
 }

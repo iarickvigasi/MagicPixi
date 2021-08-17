@@ -5,6 +5,7 @@ export default class Scene extends Container {
     constructor();
     private addTitle;
     private addCloseButton;
-    onResize(): void;
+    positionElements(): void;
     handleCloseClick: () => void;
+    private placeFPSCounter;
 }

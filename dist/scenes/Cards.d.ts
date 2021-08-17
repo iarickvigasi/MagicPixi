@@ -10,5 +10,4 @@ export default class CardsScene extends Scene {
     private placeDeck;
     private getTarotSprite;
     private moveDeck;
-    private placeFPSCounter;
 }

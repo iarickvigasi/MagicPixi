@@ -98,6 +98,9 @@ export default class TextIcon extends PIXI.Text {
       if (drawIcon) {
         const tx = mx + icon.x * scale;
         const ty = y - fontSize * 0.35 + (icon.y - icon.height * 0.5) * scale;
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         const source = icon.texture.baseTexture.source || icon.texture.baseTexture.resource.source;
 
         this.context.drawImage(

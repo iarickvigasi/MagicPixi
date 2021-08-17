@@ -49246,7 +49246,9 @@ class App extends PIXI.Application {
         document.body.appendChild(this.view);
     }
     loadAssets() {
-        this.loader.add('close_idle', 'assets/img/close_idle.png')
+        this.loader.add('assets/img/close_idle.png')
+            .add('assets/img/bar.png')
+            .add('assets/imb/cube.png')
             .add('assets/img/tarot_spritesheet.json')
             .add('assets/img/fantasy_icons.json');
         this.loader.load((_, resources) => {
@@ -49321,7 +49323,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const pixi_js_1 = __webpack_require__(/*! pixi.js */ "./node_modules/pixi.js/dist/esm/pixi.js");
 const gsap_1 = __importDefault(__webpack_require__(/*! gsap */ "./node_modules/gsap/index.js"));
-const PixiFps_1 = __importDefault(__webpack_require__(/*! ../utils/PixiFps */ "./src/utils/PixiFps.ts"));
 const Scene_1 = __importDefault(__webpack_require__(/*! ./Scene */ "./src/scenes/Scene.ts"));
 class CardsScene extends Scene_1.default {
     constructor() {
@@ -49333,7 +49334,6 @@ class CardsScene extends Scene_1.default {
         this.headerText.text = 'Magic Cards';
         this.cardsContainer = new pixi_js_1.Container();
         this.generateRandomCards();
-        this.placeFPSCounter();
         this.placeDeck();
         this.moveDeck();
     }
@@ -49348,12 +49348,14 @@ class CardsScene extends Scene_1.default {
         this.cards = cards;
     }
     placeDeck() {
-        const PADDING = 20;
+        const PADDING = 40;
         this.cards.forEach((card, index) => {
-            card.scale.set(1.5, 1.5);
-            const baseX = 0 + PADDING + index;
+            card.scale.set(1.2, 1.2);
+            const baseX = 0 + PADDING + index * 0.2;
             const baseY = card.height * 2 + PADDING;
+            // eslint-disable-next-line no-param-reassign
             card.x = baseX;
+            // eslint-disable-next-line no-param-reassign
             card.y = (index - this.TOTAL_TAROT_CARDS * 0.5 + 0.5) * 2 + baseY;
             this.cardsContainer.addChild(card);
         });
@@ -49362,15 +49364,9 @@ class CardsScene extends Scene_1.default {
     moveDeck() {
         for (let i = 0; i < this.TOTAL_CARDS; i += 1) {
             const card = this.cards[this.TOTAL_CARDS - 1 - i];
-            const toX = window.Application.screen.width - 20 - card.width - i;
+            const toX = window.Application.screen.width - 40 - card.width - i * 0.5;
             gsap_1.default.to(card, { pixi: { x: toX }, duration: 2, delay: i });
         }
-    }
-    placeFPSCounter() {
-        const fpsCounter = new PixiFps_1.default();
-        fpsCounter.x = 50;
-        fpsCounter.y = 50;
-        this.addChild(fpsCounter);
     }
 }
 exports.default = CardsScene;
@@ -49390,14 +49386,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+const gsap_1 = __importDefault(__webpack_require__(/*! gsap */ "./node_modules/gsap/index.js"));
 const pixi_js_1 = __webpack_require__(/*! pixi.js */ "./node_modules/pixi.js/dist/esm/pixi.js");
 const TextIcon_1 = __importDefault(__webpack_require__(/*! ../utils/TextIcon */ "./src/utils/TextIcon.ts"));
 const Scene_1 = __importDefault(__webpack_require__(/*! ./Scene */ "./src/scenes/Scene.ts"));
-const PixiFps_1 = __importDefault(__webpack_require__(/*! ../utils/PixiFps */ "./src/utils/PixiFps.ts"));
 class MagicTextScene extends Scene_1.default {
     constructor() {
         super();
         this.TIME_INTERVAL = 2000;
+        this.CHARACTERS = [
+            'Gandalf',
+            'Frodo',
+            'Mordor',
+            'Aragorn',
+            'Galadriel',
+            'Legolas',
+            'Tranduil',
+            'Arick'
+        ];
         this.MAGIC_PHRASES = [
             'Ai!',
             'Pedig edhellen?',
@@ -49424,7 +49430,6 @@ class MagicTextScene extends Scene_1.default {
             ? this.getRandomText()
             : this.getRandomImage());
         this.headerText.text = 'Magic Texts!';
-        this.placeFPSCounter();
         this.startFantasyMagic();
     }
     getMagicItemsMap() {
@@ -49437,15 +49442,20 @@ class MagicTextScene extends Scene_1.default {
         return map;
     }
     startFantasyMagic() {
+        this.generateFantasyMagic();
         this.interval = setInterval(this.generateFantasyMagic.bind(this), this.TIME_INTERVAL);
     }
     generateFantasyMagic() {
         if (this.magicText)
             this.removeChild(this.magicText);
         const combination = [null, null, null].map(this.getRandomItem).join(' ');
-        this.magicText = new TextIcon_1.default(combination, this.getMagicTextStyle(), this.MAGIC_ITEMS_MAP);
-        this.magicText.y = window.Application.screen.height / 2;
-        this.magicText.x = 20;
+        const author = this.generateAuthor();
+        this.magicText = new TextIcon_1.default(`${author} ${combination}`, this.getMagicTextStyle(), this.MAGIC_ITEMS_MAP);
+        this.magicText.anchor.set(0.5);
+        this.magicText.y = 240;
+        this.magicText.x = window.Application.screen.width / 2;
+        this.magicText.alpha = 0;
+        gsap_1.default.to(this.magicText, { pixi: { alpha: 1 }, duration: 0.5 });
         this.addChild(this.magicText);
     }
     getRandomText() {
@@ -49456,6 +49466,10 @@ class MagicTextScene extends Scene_1.default {
         const randomIndex = Math.floor(Math.random() * this.MAGIC_ITEMS.length);
         return this.MAGIC_ITEMS[randomIndex].key;
     }
+    generateAuthor() {
+        const randomIndex = Math.floor(Math.random() * this.CHARACTERS.length);
+        return `${this.CHARACTERS[randomIndex]} says: `;
+    }
     getMagicTextStyle() {
         return new pixi_js_1.TextStyle({
             fontFamily: 'MorrisRomanAlternate-Black',
@@ -49463,6 +49477,8 @@ class MagicTextScene extends Scene_1.default {
             fill: '#ffffff',
             strokeThickness: 2,
             stroke: '#000000',
+            wordWrap: true,
+            wordWrapWidth: 300,
         });
     }
     destroy() {
@@ -49470,12 +49486,6 @@ class MagicTextScene extends Scene_1.default {
             clearInterval(this.interval);
         }
         super.destroy();
-    }
-    placeFPSCounter() {
-        const fpsCounter = new PixiFps_1.default();
-        fpsCounter.x = 50;
-        fpsCounter.y = 50;
-        this.addChild(fpsCounter);
     }
 }
 exports.default = MagicTextScene;
@@ -49487,25 +49497,28 @@ exports.default = MagicTextScene;
 /*!****************************!*\
   !*** ./src/scenes/Menu.ts ***!
   \****************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const pixi_js_1 = __webpack_require__(/*! pixi.js */ "./node_modules/pixi.js/dist/esm/pixi.js");
+const Decorate_1 = __importDefault(__webpack_require__(/*! ../utils/Decorate */ "./src/utils/Decorate.ts"));
 class MenuScene extends pixi_js_1.Container {
     constructor() {
         super();
-        this.buttons = [];
         this.generateButtons();
-        window.addEventListener('resize', () => this.onResize());
+        Decorate_1.default(this);
     }
     generateButtons() {
-        this.buttons = [
+        [
             { label: '144 Moving Cards', onClick: () => { var _a; return (_a = __webpack_require__.g.window.Application.sceneManager) === null || _a === void 0 ? void 0 : _a.loadCards(); } },
             { label: 'Fantasy Image Text', onClick: () => { var _a; return (_a = __webpack_require__.g.window.Application.sceneManager) === null || _a === void 0 ? void 0 : _a.loadMagicText(); } },
             { label: 'Fireballs!', onClick: () => { var _a; return (_a = __webpack_require__.g.window.Application.sceneManager) === null || _a === void 0 ? void 0 : _a.loadCards(); } },
-        ].map(({ label, onClick }) => {
+        ].map(({ label, onClick }, i) => {
             const button = new pixi_js_1.Container();
             button.interactive = true;
             button.buttonMode = true;
@@ -49513,7 +49526,7 @@ class MenuScene extends pixi_js_1.Container {
             this.addChild(button);
             const title = new pixi_js_1.Text(label, new pixi_js_1.TextStyle({
                 fontFamily: 'MorrisRomanAlternate-Black',
-                fontSize: '40px',
+                fontSize: '36px',
                 fontWeight: 'bold',
                 fill: '#ffffff',
                 strokeThickness: 4,
@@ -49521,20 +49534,10 @@ class MenuScene extends pixi_js_1.Container {
             }));
             title.anchor.set(0.5);
             button.addChild(title);
+            button.x = __webpack_require__.g.window.Application.screen.width * 0.5;
+            button.y = 100 + i * 100;
             return button;
         });
-        this.positionButtons();
-    }
-    positionButtons() {
-        const { buttons } = this;
-        for (let i = 0, l = buttons.length; i < l; i += 1) {
-            const button = buttons[i];
-            button.x = __webpack_require__.g.window.Application.screen.width * 0.5;
-            button.y = __webpack_require__.g.window.Application.screen.height * 0.5 + 50 + (i - l * 0.5 + 0.5) * 100;
-        }
-    }
-    onResize() {
-        this.positionButtons();
     }
 }
 exports.default = MenuScene;
@@ -49546,12 +49549,17 @@ exports.default = MenuScene;
 /*!*****************************!*\
   !*** ./src/scenes/Scene.ts ***!
   \*****************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const pixi_js_1 = __webpack_require__(/*! pixi.js */ "./node_modules/pixi.js/dist/esm/pixi.js");
+const Decorate_1 = __importDefault(__webpack_require__(/*! ../utils/Decorate */ "./src/utils/Decorate.ts"));
+const PixiFps_1 = __importDefault(__webpack_require__(/*! ../utils/PixiFps */ "./src/utils/PixiFps.ts"));
 class Scene extends pixi_js_1.Container {
     constructor() {
         super();
@@ -49561,8 +49569,9 @@ class Scene extends pixi_js_1.Container {
         };
         this.addTitle();
         this.addCloseButton();
-        this.onResize();
-        window.addEventListener('resize', () => this.onResize());
+        this.placeFPSCounter();
+        this.positionElements();
+        Decorate_1.default(this);
     }
     addTitle() {
         const headerText = new pixi_js_1.Text('', new pixi_js_1.TextStyle({
@@ -49586,12 +49595,18 @@ class Scene extends pixi_js_1.Container {
         this.addChild(closeButton);
         this.closeButton = closeButton;
     }
-    onResize() {
+    positionElements() {
         const { headerText, closeButton } = this;
         headerText.x = window.Application.screen.width * 0.5;
-        headerText.y = 50;
-        closeButton.x = window.Application.screen.width - 50;
-        closeButton.y = 50;
+        headerText.y = 70;
+        closeButton.x = window.Application.screen.width - 70;
+        closeButton.y = 70;
+    }
+    placeFPSCounter() {
+        const fpsCounter = new PixiFps_1.default();
+        fpsCounter.x = 70;
+        fpsCounter.y = 70;
+        this.addChild(fpsCounter);
     }
 }
 exports.default = Scene;
@@ -49641,6 +49656,121 @@ class SceneManager {
     }
 }
 exports.default = SceneManager;
+
+
+/***/ }),
+
+/***/ "./src/utils/Decorate.ts":
+/*!*******************************!*\
+  !*** ./src/utils/Decorate.ts ***!
+  \*******************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const PIXI = __importStar(__webpack_require__(/*! pixi.js */ "./node_modules/pixi.js/dist/esm/pixi.js"));
+function decorate(scene) {
+    const leftBar = PIXI.Sprite.from('assets/img/bar.png');
+    leftBar.scale.set(0.5);
+    leftBar.x = 0;
+    leftBar.y = 0;
+    scene.addChild(leftBar);
+    const rightBar = PIXI.Sprite.from('assets/img/bar.png');
+    rightBar.scale.set(-0.5, 0.5);
+    rightBar.x = window.Application.screen.width;
+    rightBar.y = 0;
+    scene.addChild(rightBar);
+    let filledHeight = leftBar.height;
+    let prevY = leftBar.y;
+    while (window.Application.screen.height > filledHeight * 0.5) {
+        const newLeftBar = PIXI.Sprite.from('assets/img/bar.png');
+        newLeftBar.scale.set(0.5);
+        newLeftBar.x = 0;
+        newLeftBar.y = prevY + leftBar.height;
+        const newRightBar = PIXI.Sprite.from('assets/img/bar.png');
+        newRightBar.scale.set(-0.5, 0.5);
+        newRightBar.x = rightBar.x;
+        newRightBar.y = prevY + rightBar.height;
+        scene.addChild(newLeftBar);
+        scene.addChild(newRightBar);
+        prevY = newLeftBar.y;
+        filledHeight += filledHeight + newLeftBar.height;
+    }
+    const topBar = PIXI.Sprite.from('assets/img/bar.png');
+    topBar.scale.set(-0.5, 0.5);
+    topBar.x = 0;
+    topBar.y = 0;
+    topBar.angle = -90;
+    scene.addChild(topBar);
+    const lowBar = PIXI.Sprite.from('assets/img/bar.png');
+    lowBar.scale.set(0.5, 0.5);
+    lowBar.x = 0;
+    lowBar.y = window.Application.screen.height;
+    lowBar.angle = -90;
+    scene.addChild(lowBar);
+    let filledWidth = topBar.height;
+    let prevX = topBar.x;
+    while (window.Application.screen.width > filledWidth * 0.5) {
+        const newTopBar = PIXI.Sprite.from('assets/img/bar.png');
+        newTopBar.scale.set(-0.5, 0.5);
+        newTopBar.x = prevX + topBar.height;
+        newTopBar.y = 0;
+        newTopBar.angle = -90;
+        scene.addChild(newTopBar);
+        const newLowBar = PIXI.Sprite.from('assets/img/bar.png');
+        newLowBar.scale.set(0.5, 0.5);
+        newLowBar.x = prevX + topBar.height;
+        newLowBar.y = window.Application.screen.height;
+        newLowBar.angle = -90;
+        scene.addChild(newLowBar);
+        prevX = newTopBar.x;
+        filledWidth += filledWidth + newTopBar.height;
+    }
+    const topLeftCube = PIXI.Sprite.from('assets/img/cube.png');
+    topLeftCube.scale.set(0.5);
+    topLeftCube.x = 0;
+    topLeftCube.y = 0;
+    scene.addChild(topLeftCube);
+    const topRightCube = PIXI.Sprite.from('assets/img/cube.png');
+    topRightCube.scale.set(0.5);
+    topRightCube.anchor.set(1, 0);
+    topRightCube.x = window.Application.screen.width;
+    topRightCube.y = 0;
+    scene.addChild(topRightCube);
+    const lowRightCube = PIXI.Sprite.from('assets/img/cube.png');
+    lowRightCube.scale.set(0.5);
+    lowRightCube.anchor.set(1, 1);
+    lowRightCube.x = window.Application.screen.width;
+    lowRightCube.y = window.Application.screen.height;
+    scene.addChild(lowRightCube);
+    const lowLeftCube = PIXI.Sprite.from('assets/img/cube.png');
+    lowLeftCube.scale.set(0.5);
+    lowLeftCube.anchor.set(0, 1);
+    lowLeftCube.x = 0;
+    lowLeftCube.y = window.Application.screen.height;
+    scene.addChild(lowLeftCube);
+}
+exports.default = decorate;
 
 
 /***/ }),
@@ -49747,54 +49877,81 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const PIXI = __importStar(__webpack_require__(/*! pixi.js */ "./node_modules/pixi.js/dist/esm/pixi.js"));
-class TextIcon extends PIXI.Container {
+class TextIcon extends PIXI.Text {
     constructor(text, style, icons) {
-        super();
+        super(text, style);
         this.icons = {};
-        this.text = text;
-        this.style = style;
+        this.fillText = (drawIcon, superMethod, text, x, y, maxWidth) => {
+            const keys = this.icons && Object.keys(this.icons);
+            if (!keys || keys.length === 0) {
+                superMethod.call(this.context, text, x, y, maxWidth);
+                return;
+            }
+            const splitter = '<><><><><><><><><><><><><>';
+            const order = [];
+            const parts = text
+                .replace(new RegExp(keys.join('|'), 'g'), (match) => {
+                order.push(this.icons[match]);
+                return splitter;
+            })
+                .split(splitter);
+            const fontSize = this.getFontSize();
+            let mx = x;
+            for (let i = 0; i < parts.length; i++) {
+                const part = parts[i];
+                if (part) {
+                    superMethod.call(this.context, part, mx, y);
+                    mx += this.context.measureText(part).width;
+                }
+                const icon = order.shift();
+                // eslint-disable-next-line no-continue
+                if (!icon)
+                    continue;
+                const { frame } = icon.texture;
+                const scale = fontSize / frame.height;
+                if (drawIcon) {
+                    const tx = mx + icon.x * scale;
+                    const ty = y - fontSize * 0.35 + (icon.y - icon.height * 0.5) * scale;
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    const source = icon.texture.baseTexture.source || icon.texture.baseTexture.resource.source;
+                    this.context.drawImage(source, frame.x, frame.y, frame.width, frame.height, tx, ty, frame.width * scale, frame.height * scale);
+                }
+                mx += (icon.x + icon.width) * scale;
+            }
+        };
         if (icons) {
             this.icons = icons;
         }
-        const keys = this.icons && Object.keys(this.icons);
-        if (!keys || keys.length === 0) {
-            const textObject = new PIXI.Text(this.text, this.style);
-            this.addChild(textObject);
-            return;
-        }
-        const keysRegex = new RegExp(keys.join('|'), 'g');
-        const splitter = '<><><><><><><><><><><><><>';
-        const order = [];
-        const parts = this.text.replace(keysRegex, (match) => {
-            order.push(this.icons[match]);
-            return splitter;
-        }).split(splitter);
-        let mx = 0;
-        const fontSize = this.getFontSize();
-        for (let i = 0; i < parts.length; i += 1) {
-            const part = parts[i];
-            if (part) {
-                const textOjbect = new PIXI.Text(part, this.style);
-                this.addChild(textOjbect);
-                textOjbect.x = mx;
-                mx += textOjbect.getBounds().width;
+        this.setContextMeasureText();
+    }
+    setContextMeasureText() {
+        const { measureText } = this.context;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        this.context.measureText = (text) => {
+            const keys = this.icons && Object.keys(this.icons);
+            if (!keys || keys.length === 0) {
+                return measureText.call(this.context, text);
             }
-            // eslint-disable-next-line no-continue
-            if (order.length === 0)
-                continue;
-            const icon = order.shift();
-            // eslint-disable-next-line no-continue
-            if (!icon)
-                continue;
-            const sprite = new PIXI.Sprite(icon.texture);
-            const scale = fontSize / sprite.height;
-            const tx = mx + 5;
-            sprite.x = tx;
-            sprite.y = sprite.height / 2;
-            sprite.scale.set(scale);
-            this.addChild(sprite);
-            mx += sprite.width + 5;
-        }
+            let { width } = measureText.call(this.context, text);
+            for (let i = 0; i < keys.length; i += 1) {
+                const key = keys[i];
+                const match = text.match(new RegExp(key, 'g'));
+                if (match) {
+                    const icon = this.icons[key];
+                    const scale = this.getFontSize() / icon.texture.frame.height;
+                    width -= match.length * measureText.call(this.context, key).width;
+                    width += match.length * (icon.x + icon.width) * scale;
+                }
+            }
+            return { width };
+        };
+    }
+    updateText(respectDirty) {
+        this.context.fillText = this.fillText.bind(this, true, this.context.fillText);
+        this.context.strokeText = this.fillText.bind(this, false, this.context.strokeText);
+        return super.updateText(respectDirty);
     }
     getFontSize() {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
