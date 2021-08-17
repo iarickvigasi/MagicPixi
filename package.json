@@ -9,7 +9,6 @@
   },
   "main": "./src/app.ts",
   "scripts": {
-    "preserve": "npm run build",
     "npm-reset": "rm -rf node_modules && npm cache verify && npm i",
     "start": "npx webpack serve",
     "serve": "node ./server.js",

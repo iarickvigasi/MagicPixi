@@ -1,0 +1,636 @@
+{"frames": {
+
+"tarot__2_cups.png":
+{
+	"frame": {"x":0,"y":0,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__2_pentacles.png":
+{
+	"frame": {"x":58,"y":0,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__2_swords.png":
+{
+	"frame": {"x":116,"y":0,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__2_wands.png":
+{
+	"frame": {"x":174,"y":0,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__3_cups.png":
+{
+	"frame": {"x":0,"y":90,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__3_pentacles.png":
+{
+	"frame": {"x":58,"y":90,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__3_swords.png":
+{
+	"frame": {"x":116,"y":90,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__3_wands.png":
+{
+	"frame": {"x":174,"y":90,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__4_cups.png":
+{
+	"frame": {"x":0,"y":180,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__4_pentacles.png":
+{
+	"frame": {"x":58,"y":180,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__4_swords.png":
+{
+	"frame": {"x":116,"y":180,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__4_wands.png":
+{
+	"frame": {"x":174,"y":180,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__5_cups.png":
+{
+	"frame": {"x":0,"y":270,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__5_pentacles.png":
+{
+	"frame": {"x":58,"y":270,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__5_swords.png":
+{
+	"frame": {"x":116,"y":270,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__5_wands.png":
+{
+	"frame": {"x":174,"y":270,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__6_cups.png":
+{
+	"frame": {"x":0,"y":360,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__6_pentacles.png":
+{
+	"frame": {"x":58,"y":360,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__6_swords.png":
+{
+	"frame": {"x":116,"y":360,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__6_wands.png":
+{
+	"frame": {"x":174,"y":360,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__7_cups.png":
+{
+	"frame": {"x":0,"y":450,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__7_pentacles.png":
+{
+	"frame": {"x":58,"y":450,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__7_swords.png":
+{
+	"frame": {"x":116,"y":450,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__7_wands.png":
+{
+	"frame": {"x":174,"y":450,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__8_cups.png":
+{
+	"frame": {"x":0,"y":540,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__8_pentacles.png":
+{
+	"frame": {"x":58,"y":540,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__8_swords.png":
+{
+	"frame": {"x":116,"y":540,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__8_wands.png":
+{
+	"frame": {"x":174,"y":540,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__9_cups.png":
+{
+	"frame": {"x":0,"y":630,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__9_pentacles.png":
+{
+	"frame": {"x":58,"y":630,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__9_swords.png":
+{
+	"frame": {"x":116,"y":630,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__9_wands.png":
+{
+	"frame": {"x":174,"y":630,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__10_cups.png":
+{
+	"frame": {"x":0,"y":720,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__10_pentacles.png":
+{
+	"frame": {"x":58,"y":720,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__10_swords.png":
+{
+	"frame": {"x":116,"y":720,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__10_wands.png":
+{
+	"frame": {"x":174,"y":720,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__ace_cups.png":
+{
+	"frame": {"x":0,"y":810,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__ace_pentacles.png":
+{
+	"frame": {"x":58,"y":810,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__ace_swords.png":
+{
+	"frame": {"x":116,"y":810,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__ace_wands.png":
+{
+	"frame": {"x":174,"y":810,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__chariot.png":
+{
+	"frame": {"x":0,"y":900,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__death.png":
+{
+	"frame": {"x":58,"y":900,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__devil.png":
+{
+	"frame": {"x":116,"y":900,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__emperor.png":
+{
+	"frame": {"x":174,"y":900,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__empress.png":
+{
+	"frame": {"x":0,"y":990,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__fool.png":
+{
+	"frame": {"x":58,"y":990,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__fortune.png":
+{
+	"frame": {"x":116,"y":990,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__hangman.png":
+{
+	"frame": {"x":174,"y":990,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__hermit.png":
+{
+	"frame": {"x":0,"y":1080,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__hierophant.png":
+{
+	"frame": {"x":58,"y":1080,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__judgment.png":
+{
+	"frame": {"x":116,"y":1080,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__justice.png":
+{
+	"frame": {"x":174,"y":1080,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__king_cups.png":
+{
+	"frame": {"x":0,"y":1170,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__king_pentacles.png":
+{
+	"frame": {"x":58,"y":1170,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__king_swords.png":
+{
+	"frame": {"x":116,"y":1170,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__king_wands.png":
+{
+	"frame": {"x":174,"y":1170,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__knight_cups.png":
+{
+	"frame": {"x":0,"y":1260,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__knight_pentacles.png":
+{
+	"frame": {"x":58,"y":1260,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__knight_swords.png":
+{
+	"frame": {"x":116,"y":1260,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__knight_wands.png":
+{
+	"frame": {"x":174,"y":1260,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__lovers.png":
+{
+	"frame": {"x":0,"y":1350,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__magician.png":
+{
+	"frame": {"x":58,"y":1350,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__moon.png":
+{
+	"frame": {"x":116,"y":1350,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__page_cups.png":
+{
+	"frame": {"x":174,"y":1350,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__page_pentacles.png":
+{
+	"frame": {"x":0,"y":1440,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__page_swords.png":
+{
+	"frame": {"x":58,"y":1440,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__page_wands.png":
+{
+	"frame": {"x":116,"y":1440,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__priestess.png":
+{
+	"frame": {"x":174,"y":1440,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__queen_cups.png":
+{
+	"frame": {"x":0,"y":1530,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__queen_pentacles.png":
+{
+	"frame": {"x":58,"y":1530,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__queen_swords.png":
+{
+	"frame": {"x":116,"y":1530,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__queen_wands.png":
+{
+	"frame": {"x":174,"y":1530,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__star.png":
+{
+	"frame": {"x":0,"y":1620,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__strength.png":
+{
+	"frame": {"x":58,"y":1620,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__sun.png":
+{
+	"frame": {"x":116,"y":1620,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__temperance.png":
+{
+	"frame": {"x":174,"y":1620,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__theworld.png":
+{
+	"frame": {"x":0,"y":1710,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+},
+"tarot__tower.png":
+{
+	"frame": {"x":58,"y":1710,"w":58,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":90},
+	"sourceSize": {"w":58,"h":90}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "tarot_spritesheet.png",
+	"format": "RGBA8888",
+	"size": {"w":232,"h":1800},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:bd09ac8eb22e2409a42cf3fc580ab7ab:199f0128188e0985334fbc62b3a4dadf:c1d26ec0460a0b04cbc3877afdaec7ce$"
+}
+}

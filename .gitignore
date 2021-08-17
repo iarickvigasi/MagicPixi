@@ -12,7 +12,7 @@ node_modules/
 .npm
 
 # Bundle
-dist/
+#dist/
 
 #IDE
 .idea
