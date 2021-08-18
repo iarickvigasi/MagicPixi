@@ -63,7 +63,7 @@ class App extends PIXI.Application {
 
   registerPixiInspector = () => {
     // eslint-disable-next-line max-len,no-underscore-dangle,no-unused-expressions
-    (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__ && (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI });
+    (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__ && (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__.register({PIXI});
   };
 
   private createSprites(spritesheet: PIXI.Spritesheet) {
@@ -97,6 +97,7 @@ class App extends PIXI.Application {
       // @HACK: All resizing and scaling should be done in other way.
       window.location.reload();
     });
+  }
 }
 
 declare global {
