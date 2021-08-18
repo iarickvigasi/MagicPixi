@@ -1,6 +1,7 @@
 // Author https://github.com/yordan-kanchelov/pixi-fps/blob/master/src/app/pixi-fps.ts
 
 import * as PIXI from 'pixi.js';
+import TextStylesAdvisor from './TextStylesAdvisor';
 
 export default class PixiFps extends PIXI.Container {
   private fpsTextField: PIXI.Text;
@@ -14,13 +15,7 @@ export default class PixiFps extends PIXI.Container {
   constructor(style?: PIXI.TextStyle) {
     super();
 
-    const defaultStyle = new PIXI.TextStyle({
-      fontFamily: 'MorrisRomanAlternate-Black',
-      fontSize: '4em',
-      fill: '#ffffff',
-      strokeThickness: 4,
-      stroke: '#000000',
-    });
+    const defaultStyle = TextStylesAdvisor();
 
     this.timeValues = [];
     this.lastTime = new Date().getTime();

@@ -1,7 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { gsap } from 'gsap';
 import { PixiPlugin } from 'gsap/PixiPlugin';
-import Game from './game';
 import SceneManager from './scenes/SceneManager';
 
 const CONFIG = {
@@ -17,22 +16,26 @@ class App extends PIXI.Application {
 
   public fantasyIcons!: PIXI.Sprite[];
 
-  private game!: Game;
-
   constructor() {
     super(CONFIG);
-    this.setupResize();
+    this.setupOrientationChange();
     this.injectIntoBody();
     this.registerPixiInspector();
-    this.loadAssets();
     this.configureTween();
+    this.loadAssets();
 
     this.loader.onComplete.add(() => {
       global.window.Application = this;
-      this.game = new Game();
-      this.sceneManager = new SceneManager(this.game);
+      this.sceneManager = new SceneManager(this.stage);
       this.runGame();
     });
+  }
+
+  public isLandscape() {
+    if (this.renderer.screen.width > this.renderer.screen.height) {
+      return true;
+    }
+    return false;
   }
 
   private injectIntoBody() {
@@ -42,6 +45,8 @@ class App extends PIXI.Application {
   private loadAssets() {
     this.loader.add('assets/img/close_idle.png')
       .add('assets/img/bar.png')
+      .add('assets/img/smokeparticle.png')
+      .add('assets/img/pixel50.png')
       .add('assets/imb/cube.png')
       .add('assets/img/tarot_spritesheet.json')
       .add('assets/img/fantasy_icons.json');
@@ -53,24 +58,8 @@ class App extends PIXI.Application {
   }
 
   private runGame() {
-    this.stage.addChild(this.game);
     this.sceneManager?.loadMenu();
   }
-
-  private setupResize() {
-    // window.addEventListener('resize', () => this.onResize());
-    // this.onResize();
-  }
-
-  // onResize() {
-  // const scale = Resizer.getScale();
-  // this.renderer.resize(
-  //   Math.ceil(window.innerWidth * scale),
-  //   Math.ceil(window.innerHeight * scale)
-  // );
-  // this.view.style.width = `${window.innerWidth}px`;
-  // this.view.style.height = `${window.innerHeight}px`;
-  // }
 
   registerPixiInspector = () => {
     // eslint-disable-next-line max-len,no-underscore-dangle,no-unused-expressions
@@ -93,10 +82,21 @@ class App extends PIXI.Application {
     this.fantasyIcons = this.createSprites(spritesheet);
   }
 
-  private configureTween() {
+  private configureTween = () => {
     gsap.registerPlugin(PixiPlugin);
     PixiPlugin.registerPIXI(PIXI);
   }
+
+  private setupOrientationChange = () => {
+    window.addEventListener('orientationchange', () => {
+      // @HACK: All resizing and scaling should be done in other way.
+      window.location.reload();
+    });
+
+    window.addEventListener('resize', () => {
+      // @HACK: All resizing and scaling should be done in other way.
+      window.location.reload();
+    });
 }
 
 declare global {

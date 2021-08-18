@@ -2,6 +2,7 @@ import { Container } from 'pixi.js';
 import MenuScene from './Menu';
 import CardsScene from './Cards';
 import MagicTextScene from './MagicText';
+import FireballsScene from './Fireballs';
 
 export default class SceneManager {
   private mainStage: Container;
@@ -10,10 +11,6 @@ export default class SceneManager {
 
   constructor(mainStage: Container) {
     this.mainStage = mainStage;
-  }
-
-  public getScene() {
-    return this.scene;
   }
 
   private loadScene(scene: Container) {
@@ -35,5 +32,10 @@ export default class SceneManager {
   public loadMagicText() {
     const magicTextScene = new MagicTextScene();
     this.loadScene(magicTextScene);
+  }
+
+  public loadFireballs() {
+    const fireballsScene = new FireballsScene();
+    this.loadScene(fireballsScene);
   }
 }

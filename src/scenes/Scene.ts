@@ -1,8 +1,9 @@
 import {
-  Container, Text, TextStyle, Sprite,
+  Container, Text, Sprite,
 } from 'pixi.js';
 import decorate from '../utils/Decorate';
 import PixiFps from '../utils/PixiFps';
+import TextStylesAdvisor from '../utils/TextStylesAdvisor';
 
 export default class Scene extends Container {
   public headerText!: Text;
@@ -19,13 +20,7 @@ export default class Scene extends Container {
   }
 
   private addTitle() {
-    const headerText = new Text('', new TextStyle({
-      fontFamily: 'MorrisRomanAlternate-Black',
-      fontSize: '4em',
-      fill: '#ffffff',
-      strokeThickness: 4,
-      stroke: '#000000',
-    }));
+    const headerText = new Text('', TextStylesAdvisor());
     headerText.anchor.set(0.5);
     this.addChild(headerText);
     this.headerText = headerText;

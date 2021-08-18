@@ -1,5 +1,6 @@
-import { Container, TextStyle, Text } from 'pixi.js';
+import { Container, Text } from 'pixi.js';
 import decorate from '../utils/Decorate';
+import TextStylesAdvisor from '../utils/TextStylesAdvisor';
 
 export default class MenuScene extends Container {
   constructor() {
@@ -12,22 +13,15 @@ export default class MenuScene extends Container {
     [
       { label: '144 Moving Cards', onClick: () => global.window.Application.sceneManager?.loadCards() },
       { label: 'Fantasy Image Text', onClick: () => global.window.Application.sceneManager?.loadMagicText() },
-      { label: 'Fireballs!', onClick: () => global.window.Application.sceneManager?.loadCards() },
-    ].map(({ label, onClick}, i) => {
+      { label: 'Fireballs!', onClick: () => global.window.Application.sceneManager?.loadFireballs() },
+    ].map(({ label, onClick }, i) => {
       const button = new Container();
       button.interactive = true;
       button.buttonMode = true;
       button.on('pointerdown', () => onClick());
       this.addChild(button);
 
-      const title = new Text(label, new TextStyle({
-        fontFamily: 'MorrisRomanAlternate-Black',
-        fontSize: '36px',
-        fontWeight: 'bold',
-        fill: '#ffffff',
-        strokeThickness: 4,
-        stroke: '#000000',
-      }));
+      const title = new Text(label, TextStylesAdvisor());
       title.anchor.set(0.5);
       button.addChild(title);
 

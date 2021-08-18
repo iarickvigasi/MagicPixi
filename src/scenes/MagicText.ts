@@ -1,8 +1,7 @@
-import gsap from "gsap";
+import gsap from 'gsap';
 import { TextStyle } from 'pixi.js';
-import TextIcon from '../utils/TextIcon';
 import Scene from './Scene';
-
+import TextIcon from '../utils/TextIcon';
 
 export default class MagicTextScene extends Scene {
 
@@ -18,7 +17,7 @@ export default class MagicTextScene extends Scene {
     'Galadriel',
     'Legolas',
     'Tranduil',
-    'Arick'
+    'Arick',                            // It's me :) !
   ];
 
   private readonly MAGIC_PHRASES = [
