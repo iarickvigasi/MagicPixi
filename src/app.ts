@@ -47,7 +47,7 @@ class App extends PIXI.Application {
       .add('assets/img/bar.png')
       .add('assets/img/smokeparticle.png')
       .add('assets/img/pixel50.png')
-      .add('assets/imb/cube.png')
+      .add('assets/img/cube.png')
       .add('assets/img/tarot_spritesheet.json')
       .add('assets/img/fantasy_icons.json');
 

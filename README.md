@@ -4,6 +4,7 @@ This project is built using Webpack, Typescript and PixiJS!
 
 I wanted to make this project interesting for devs to take a look, also enjoyable by myself while writing.
 
+Live demo: https://softgames-fantasy-test.herokuapp.com/
 ### How to run?
 
 ```
@@ -29,6 +30,11 @@ This is really magic. I mean it.
 Well, not exactly. It is pixel fire! Made by pixi-particles. 6 sprites for fire, and 4 for smoke.
 It is magically minimalistic! 
 </pre>
+
+### What can be better?
+Oh, man. There is huge issue with resizing. It is far from adaptive.
+
+Fireballs can be real fireballs. And they should run with blazing effects into walls, and crash them!
 
 ### Other
 I really hope you like it :) 
